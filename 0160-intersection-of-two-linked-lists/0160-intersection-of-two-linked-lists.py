@@ -9,12 +9,12 @@ class Solution(object):
         L1 = headA
         L2 = headB
         while L1 != L2:
-            if L1 :
+            if L1 is not None :
                 L1 = L1.next
             else:
                 L1 = headB
             
-            if L2 :
+            if L2 is not None :
                 L2 = L2.next
             else:
                 L2 = headA
