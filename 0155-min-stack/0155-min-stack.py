@@ -1,45 +1,39 @@
 class MinStack(object):
+    
+    class Node:
+        def __init__(self,val,next,min_val):
+            self.val = val
+            self.next = next
+            self.min_val = min_val
 
     def __init__(self):
-        self.stack = []
-        self.minimumStack = []
+        self.head = None
         
-
     def push(self, val):
-        self.stack.append(val)
-        if len(self.minimumStack) == 0:
-            self.minimumStack.append(val)
-        elif (val < self.minimumStack[-1]):
-            self.minimumStack.append(val)
+        if self.head is None:
+            self.head = self.Node(val,None,val)
         else:
-            self.minimumStack.append(self.minimumStack[-1]) 
-
-
-
+            self.head = self.Node(val, self.head, min(val, self.head.min_val))
+        
+        
     def pop(self):
-        if len(self.stack) == 0:
-            return -1
-        else:
-            self.minimumStack.pop()
-            result = self.stack.pop()
-            return  result
-           
-
+        if self.head is not None:
+            self.head = self.head.next
+        # else:
+        #     raise IndexError("Stack is empty")
+        
+        
     def top(self):
-        if not self.stack:
-            return -1
-        else:
-            return self.stack[-1]
+        if self.head is not None:
+            return self.head.val
+        #raise IndexError("Stack is empty")
         
-
     def getMin(self):
-        if not self.stack:
-            return -1
-        else:
-            return self.minimumStack[-1]
-            
-
+        if self.head is not None:
+            return self.head.min_val
+        #raise IndexError("Stack is empty")
         
+
 # Your MinStack object will be instantiated and called as such:
 # obj = MinStack()
 # obj.push(val)
