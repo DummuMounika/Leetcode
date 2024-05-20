@@ -1,28 +1,29 @@
 class Solution(object):
-    
     def isValid(self, s):
-
+        
+        
+        dictS = {
+            '(': ')',
+            '{': '}',
+            '[': ']'
+        }    
+        
         stack = []
-        for i in range(len(s)):
-            ch = s[i]
-            if (ch == '(' or ch == '{' or ch == '['):
-                stack.append(ch)
+        
+        for char in s:
+            if char in dictS:
+                stack.append(dictS[char])
+                
             else:
-                if len(stack) == 0: 
-                    return False
-                if ((stack[-1] == '(' and ch == ')') or (stack[-1] == '{' and ch == '}') 
-                or (stack[-1] == '[' and ch == ']')):
+                if len(stack) != 0 and char == stack[-1]:
                     stack.pop()
                 else:
                     return False
-
-        return len(stack) == 0
-
-                 
-
-
+                
+        if len(stack) == 0:
+            return True
+        else:
+            return False
+            
         
-    
-    
-    
         
