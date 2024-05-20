@@ -19,19 +19,15 @@ class MinStack(object):
     def pop(self):
         if self.head is not None:
             self.head = self.head.next
-        # else:
-        #     raise IndexError("Stack is empty")
         
         
     def top(self):
         if self.head is not None:
             return self.head.val
-        #raise IndexError("Stack is empty")
         
     def getMin(self):
         if self.head is not None:
             return self.head.min_val
-        #raise IndexError("Stack is empty")
         
 
 # Your MinStack object will be instantiated and called as such:
