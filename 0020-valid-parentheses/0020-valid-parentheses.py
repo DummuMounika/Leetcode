@@ -2,11 +2,7 @@ class Solution(object):
     def isValid(self, s):
         
         
-        dictS = {
-            '(': ')',
-            '{': '}',
-            '[': ']'
-        }    
+        dictS = { '(': ')', '{': '}','[': ']' }    
         
         stack = []
         
