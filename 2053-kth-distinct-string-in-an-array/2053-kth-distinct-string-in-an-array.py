@@ -7,7 +7,6 @@ class Solution:
             else:
                 val = 1
                 dictk[arr[i]] += val
-        print(dictk)
         for i in range(len(arr)):
             if dictk[arr[i]] == 1:
                 k -= 1
